@@ -9,7 +9,7 @@ class Book extends Model
 {
     use HasFactory;
 
-    /**
+	    /**
      * The attributes that are mass assignable.
      *
      * @var array
@@ -18,7 +18,7 @@ class Book extends Model
         'author_id', 'title', 'isbn', 'pub_year', 'available'
     ];
 
-    /**
+	   /**
      * The attributes that should be cast.
      *
      * @var array

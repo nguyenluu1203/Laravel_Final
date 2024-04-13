@@ -10,20 +10,20 @@ class BooksController extends Controller
     public function index()
     {
         $books = Book::all();
-        // dd($books);
+		// dd($books);
         return view('books.index', ['books' => $books]);
     }
 
-    public function search(Request $request)
+	    public function search(Request $request)
     {
         $search = $request->input('search');
-
+        
         // Query books with optional search filter
         $books = Book::where('title', 'LIKE', "%$search%")->get();
-
+        
         return view('books.search', [
-            'books' => $books,
-            'search' => $search,
-        ]);
+			'books' => $books,
+			'search' => $search,
+		]);	
     }
 }

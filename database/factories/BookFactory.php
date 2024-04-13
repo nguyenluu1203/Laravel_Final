@@ -3,9 +3,8 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Book>
  */
 class BookFactory extends Factory
 {
@@ -14,14 +13,17 @@ class BookFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition(): array
+    public function definition()
     {
         return [
-            'authorid'=>$this->faker->random_int(1,100),
-            'title'=>$this->faker->sentence(5),
-            'ISBN'=>$this->faker->isbn13(),
-            'pub_year'=>$this->faker->random_int(1900,2022),
-            'available'=>$this->faker->optional()->randomElement([null, 1]),
+            'author_id' => $this->faker->numberBetween(1, 100), // Default author_id
+            'title' => $this->faker->sentence(5), // Generate a random sentence for the title
+            'isbn' => $this->faker->isbn13(), // Generate a random ISBN-13 number
+            'pub_year' => $this->faker->numberBetween(1900, 2022), // Generate a random publication year between 1900 and 2022
+            'available' => $this->faker->optional()->randomElement([null, 1]), // Default availability status to NULL
         ];
     }
 }
+
+
+
